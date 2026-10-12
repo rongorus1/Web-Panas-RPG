@@ -40,6 +40,10 @@ Dentro de cada capacidad:
 
 Reglas: las dependencias van hacia dentro (presentation → application → domain); `shared/` no conoce ninguna capacidad; solo son Client Components los que necesitan estado del navegador (`SiteNavigation`, `TourCamera`, `LauncherTabs`).
 
+## Licencia
+
+El código de la web es MIT (ver `LICENSE`). Las imágenes y el arte del modpack pertenecen a sus autores (ficha de CurseForge, autor juanse_vg) y no quedan cubiertos por esa licencia.
+
 ## Pendiente de confirmar
 
 - `loadedMods` (240) es el recuento del juego (captura del menú). El manifest del pack lista 234 archivos de CurseForge (227 en `modlist.html`) más 5 jars propios; decidir qué cifra mostrar (`src/modpack/infrastructure/panas-rpg.content.ts`).
