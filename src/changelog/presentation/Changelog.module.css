@@ -1,0 +1,69 @@
+.log {
+  padding-block: clamp(72px, 9vw, 120px);
+  background: var(--bg-2);
+}
+
+.versions {
+  list-style: none;
+  margin-top: clamp(32px, 5vw, 56px);
+}
+
+.versions li {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  gap: 8px clamp(24px, 4vw, 56px);
+  padding: 26px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.v {
+  font: 800 clamp(2rem, 3.4vw, 2.8rem) / 1 var(--display);
+  color: var(--ink);
+}
+
+.versions h3 {
+  font: 600 1.3rem/1.25 var(--body);
+}
+
+.versions p {
+  margin-top: 6px;
+}
+
+.now .v {
+  color: var(--xp);
+  font-size: clamp(3.2rem, 6vw, 5rem);
+}
+
+.now h3 {
+  font: 800 clamp(1.8rem, 2.6vw, 2.2rem) / 1 var(--display);
+}
+
+@media (max-width: 960px) {
+  .versions li {
+    grid-template-columns: 1fr;
+  }
+}
+
+.versions li {
+  --reveal-y: 12px;
+  --reveal-duration: 560ms;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .v {
+    transition:
+      transform 560ms var(--ease-out) 90ms,
+      translate 200ms var(--ease-out);
+  }
+
+  :global(:root[data-reveal-armed]) .versions li:not([data-revealed]) .v {
+    transform: translateX(-20px);
+  }
+}
+
+/* `translate` composes with the entrance `transform`. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .versions li:hover .v {
+    translate: 6px 0;
+  }
+}

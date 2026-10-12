@@ -1,0 +1,54 @@
+/*
+ * Scroll reveals: IntersectionObserver + CSS transitions instead of `animation-timeline: view()`.
+ * A reveal is a one-off event with its own duration and curve, not a scrub tied to scroll
+ * position; `view()` would be reversible, track the finger linearly and has uneven browser support.
+ *
+ * The hidden state only exists when all of these hold:
+ * - the <head> script armed the page (JS and IntersectionObserver available),
+ * - the media is a screen (everything is visible when printing),
+ * - the user has not asked for reduced motion (then everything is static and visible).
+ */
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root[data-reveal-armed] :is([data-reveal]:not([data-reveal="stagger"]), [data-reveal="stagger"] > *) {
+    clip-path: var(--reveal-clip-to, none);
+    transition-property: opacity, transform, clip-path;
+    transition-duration: var(--reveal-duration, 600ms);
+    transition-timing-function: var(--ease-out);
+    transition-delay: calc(var(--reveal-delay, 0ms) + var(--i, 0) * var(--reveal-step, 70ms));
+  }
+
+  :root[data-reveal-armed]
+    :is(
+      [data-reveal]:not([data-reveal="stagger"], [data-revealed]),
+      [data-reveal="stagger"]:not([data-revealed]) > *
+    ) {
+    opacity: 0;
+    transform: translate3d(var(--reveal-x, 0px), var(--reveal-y, 16px), 0);
+    clip-path: var(--reveal-clip-from, none);
+  }
+
+  [data-reveal="stagger"] > * {
+    --i: 0;
+  }
+  [data-reveal="stagger"] > :nth-child(2) {
+    --i: 1;
+  }
+  [data-reveal="stagger"] > :nth-child(3) {
+    --i: 2;
+  }
+  [data-reveal="stagger"] > :nth-child(4) {
+    --i: 3;
+  }
+  [data-reveal="stagger"] > :nth-child(5) {
+    --i: 4;
+  }
+  [data-reveal="stagger"] > :nth-child(6) {
+    --i: 5;
+  }
+  [data-reveal="stagger"] > :nth-child(7) {
+    --i: 6;
+  }
+  [data-reveal="stagger"] > :nth-child(n + 8) {
+    --i: 7;
+  }
+}

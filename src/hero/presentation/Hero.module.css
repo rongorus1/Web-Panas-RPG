@@ -1,0 +1,159 @@
+.hero {
+  --sh: max(100cqh, 56.25cqw);
+  position: relative;
+  height: 100dvh;
+  min-height: 620px;
+  max-height: 1200px;
+  overflow: hidden;
+  container-type: size;
+  background: #070a13;
+  isolation: isolate;
+}
+
+.stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100cqw, 177.78cqh);
+  aspect-ratio: 16 / 9;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+}
+
+.stage img {
+  object-fit: cover;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(180deg, rgba(8, 11, 22, 0.6) 0%, rgba(8, 11, 22, 0) 14%),
+    linear-gradient(0deg, rgb(12, 17, 32) 0%, rgba(12, 17, 32, 0.88) 12%, rgba(12, 17, 32, 0) 30%);
+}
+
+/* The logo in the art ends at ~49% of its height; the copy starts right below it. */
+.copy::before {
+  content: "";
+  position: absolute;
+  inset: -56px -110px -44px;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgba(8, 11, 22, 0.82) 50%, rgba(8, 11, 22, 0));
+}
+
+.copy {
+  position: absolute;
+  left: 50%;
+  top: calc(50cqh + 0.012 * var(--sh) + 10px);
+  transform: translateX(-50%);
+  width: min(720px, 100% - 32px);
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.copy h1 {
+  font-size: clamp(2.6rem, min(7.2cqh, 6.4cqw), 4.9rem);
+  line-height: 0.95;
+  text-shadow: 0 2px 18px rgba(5, 8, 16, 0.7);
+}
+
+.sub {
+  max-width: 34ch;
+  color: #f2f5fb;
+  font: 500 clamp(1.02rem, 2.3cqh, 1.2rem) / 1.45 var(--body);
+  text-shadow: 0 1px 3px rgba(5, 8, 16, 0.95);
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.facts {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(14px, 2.6cqh, 28px);
+  transform: translateX(-50%);
+  width: min(820px, 100% - 32px);
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.facts div {
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+  padding: 0 12px;
+  text-align: center;
+}
+
+.facts div + div {
+  border-left: 1px solid rgba(238, 242, 250, 0.2);
+}
+
+.facts dt {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.facts dd {
+  margin: 0;
+  color: var(--ink);
+  font: 700 clamp(1.45rem, 3cqh, 1.85rem) / 1 var(--display);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stage img {
+    animation: enter 1400ms var(--ease-out) both;
+  }
+
+  .copy > *,
+  .facts {
+    animation: rise 520ms var(--ease-out) both;
+    animation-delay: calc(380ms + var(--i, 0) * 70ms);
+  }
+
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: scale(1.06);
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .copy {
+    gap: 12px;
+  }
+
+  .cta a {
+    min-height: 48px;
+    padding: 0 20px;
+  }
+
+  .facts {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 14px;
+  }
+
+  .facts div:nth-child(3) {
+    border-left: 0;
+  }
+}

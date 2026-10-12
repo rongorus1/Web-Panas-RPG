@@ -1,0 +1,16 @@
+.skip {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 50;
+  padding: 10px 16px;
+  background: var(--xp);
+  color: var(--xp-ink);
+  font-weight: 700;
+  border-radius: var(--r);
+  text-decoration: none;
+}
+
+.skip:focus {
+  top: 16px;
+}

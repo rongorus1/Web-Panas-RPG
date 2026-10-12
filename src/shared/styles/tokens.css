@@ -1,0 +1,28 @@
+:root {
+  --bg: #0c1120;
+  --bg-2: #121a2e;
+  --bg-3: #1a2440;
+  --rule: #27324f;
+  --ink: #eef2fa;
+  --muted: #a9b4cd;
+  --xp: #8ee04e;
+  --xp-hi: #a6f067;
+  --xp-ink: #0f1d06;
+  --ftb: #13214a;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  --display: var(--font-handjet), "Archivo", sans-serif;
+  --body: var(--font-archivo), system-ui, sans-serif;
+
+  --r: 4px;
+  --gutter: clamp(16px, 4vw, 48px);
+  --nav-h: 64px;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --nav-h: 58px;
+  }
+}

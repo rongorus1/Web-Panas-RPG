@@ -1,0 +1,38 @@
+.footer {
+  border-top: 1px solid var(--rule);
+  padding-block: 36px 44px;
+  font-size: 0.93rem;
+}
+
+.stack {
+  display: grid;
+  gap: 14px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px 36px;
+}
+
+.row ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  list-style: none;
+}
+
+.row a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 0;
+  display: inline-block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .row a:hover {
+    color: var(--ink);
+  }
+}

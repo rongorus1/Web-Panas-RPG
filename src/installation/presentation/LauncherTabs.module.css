@@ -1,0 +1,124 @@
+.launch {
+  margin-top: clamp(40px, 6vw, 64px);
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: start;
+}
+
+.tabs {
+  display: grid;
+  gap: 8px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 56px;
+  padding: 0 18px;
+  border: 2px solid var(--rule);
+  border-radius: var(--r);
+  background: transparent;
+  color: var(--muted);
+  font: 600 1.05rem/1.2 var(--body);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 140ms var(--ease-out),
+    border-color 160ms var(--ease-out),
+    color 160ms var(--ease-out),
+    background-color 160ms var(--ease-out);
+}
+
+.tab:active {
+  transform: scale(0.98);
+}
+
+.tab[aria-selected="true"] {
+  border-color: var(--xp);
+  color: var(--ink);
+  background: rgba(142, 224, 78, 0.07);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tab[aria-selected="false"]:hover {
+    border-color: #3c4a70;
+    color: var(--ink);
+  }
+}
+
+.tag {
+  flex: none;
+  padding: 5px 8px;
+  border-radius: var(--r);
+  background: var(--xp);
+  color: var(--xp-ink);
+  font: 700 0.75rem/1 var(--body);
+}
+
+.panel {
+  background: var(--bg-2);
+  border-radius: var(--r);
+  padding: clamp(24px, 3vw, 36px);
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.panel h3 {
+  font-size: clamp(1.8rem, 2.6vw, 2.2rem);
+}
+
+.panel ol {
+  margin-top: 18px;
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  counter-reset: s;
+}
+
+.panel li {
+  counter-increment: s;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 12px;
+  color: var(--ink);
+}
+
+.panel li::before {
+  content: counter(s);
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r);
+  background: var(--bg-3);
+  color: var(--xp);
+  font: 700 1.15rem/1 var(--display);
+}
+
+.download {
+  margin-top: 24px;
+}
+
+@media (max-width: 960px) {
+  .launch {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab {
+    transition-duration: 1ms;
+  }
+}
+
+/* Switching tabs is deliberately not animated: it is frequent and often keyboard-driven. */
+.launch {
+  --reveal-y: 20px;
+  --reveal-duration: 620ms;
+}

@@ -1,0 +1,4 @@
+.wrap {
+  width: min(1240px, 100% - var(--gutter) * 2);
+  margin-inline: auto;
+}

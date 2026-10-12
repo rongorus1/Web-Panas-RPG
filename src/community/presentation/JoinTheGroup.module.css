@@ -1,0 +1,64 @@
+.end {
+  padding-block: clamp(96px, 12vw, 168px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.art {
+  margin: 0;
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: 0 30px 70px -30px rgba(3, 5, 12, 0.9);
+}
+
+.end h2 {
+  font-size: clamp(3rem, 6vw, 5.25rem);
+}
+
+.lead {
+  margin-top: 20px;
+  font-size: 1.1875rem;
+  color: var(--ink);
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The final clip extends past the box so the shadow is not cut. */
+.art {
+  --reveal-x: 0px;
+  --reveal-y: 0px;
+  --reveal-clip-from: inset(0 100% 0 0);
+  --reveal-clip-to: inset(-80px -80px -80px -80px);
+  --reveal-duration: 1000ms;
+}
+
+.end .grid > div {
+  --reveal-step: 90ms;
+  --reveal-delay: 120ms;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .art img {
+    transition: transform 1400ms var(--ease-out);
+  }
+
+  :global(:root[data-reveal-armed]) .art:not([data-revealed]) img {
+    transform: scale(1.08);
+  }
+}

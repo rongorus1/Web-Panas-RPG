@@ -1,0 +1,39 @@
+.install {
+  padding-block: clamp(96px, 12vw, 168px) clamp(72px, 9vw, 120px);
+}
+
+.specs {
+  margin: 32px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, auto));
+  justify-content: start;
+  gap: 12px clamp(28px, 4vw, 56px);
+}
+
+.specs div {
+  display: grid;
+  gap: 4px;
+}
+
+.specs dt {
+  font-size: 0.9rem;
+}
+
+.specs dd {
+  margin: 0;
+  color: var(--ink);
+  font: 700 clamp(1.7rem, 2.6vw, 2.2rem) / 1 var(--display);
+}
+
+@media (max-width: 960px) {
+  .specs {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.specs {
+  --reveal-y: 10px;
+  --reveal-duration: 480ms;
+  --reveal-delay: 100ms;
+  --reveal-step: 55ms;
+}

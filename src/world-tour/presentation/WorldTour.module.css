@@ -1,0 +1,14 @@
+.tour {
+  padding-top: clamp(72px, 9vw, 120px);
+}
+
+.container {
+  position: relative;
+}
+
+/* Target of the skip link. */
+.anchor {
+  position: absolute;
+  top: 0;
+  scroll-margin-top: var(--nav-h);
+}
