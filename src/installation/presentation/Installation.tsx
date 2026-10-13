@@ -21,7 +21,7 @@ export function Installation() {
             </div>
           ))}
         </dl>
-        <LauncherTabs launchers={launchers} downloadUrl={panasRpg.links.download} />
+        <LauncherTabs launchers={launchers} />
         <ResourcePackOrder />
       </Container>
     </section>

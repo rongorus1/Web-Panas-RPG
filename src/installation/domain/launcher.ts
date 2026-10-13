@@ -1,8 +1,11 @@
 export type Launcher = {
   id: string;
   name: string;
-  recommended?: boolean;
+  /** Short label shown next to the name in the tab. */
+  badge?: string;
   guideTitle: string;
   steps: string[];
-  offersDownload?: boolean;
+  /** Note shown under the steps. */
+  note?: string;
+  download?: { label: string; href: string };
 };

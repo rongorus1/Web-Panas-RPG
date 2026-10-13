@@ -101,6 +101,11 @@
   font: 700 1.15rem/1 var(--display);
 }
 
+.note {
+  margin-top: 20px;
+  font-size: 0.95rem;
+}
+
 .download {
   margin-top: 24px;
 }

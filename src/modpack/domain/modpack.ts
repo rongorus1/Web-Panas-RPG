@@ -14,6 +14,7 @@ export type Modpack = {
   links: {
     download: string;
     community: string;
+    launcher: string;
   };
 };
 

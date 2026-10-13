@@ -15,5 +15,6 @@ export const panasRpg: Modpack = {
   links: {
     download: "https://www.curseforge.com/minecraft/modpacks/panasrpg-v-1",
     community: "https://discord.gg/beyMx7uuTX",
+    launcher: "https://github.com/rongorus1/LauncherPanasRPG/releases/latest",
   },
 };

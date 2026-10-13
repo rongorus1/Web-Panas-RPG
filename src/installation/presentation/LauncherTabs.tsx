@@ -7,10 +7,9 @@ import styles from "./LauncherTabs.module.css";
 
 type LauncherTabsProps = {
   launchers: Launcher[];
-  downloadUrl: string;
 };
 
-export function LauncherTabs({ launchers, downloadUrl }: LauncherTabsProps) {
+export function LauncherTabs({ launchers }: LauncherTabsProps) {
   const [selected, setSelected] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const baseId = useId();
@@ -54,7 +53,7 @@ export function LauncherTabs({ launchers, downloadUrl }: LauncherTabsProps) {
             onClick={() => select(i)}
           >
             {launcher.name}
-            {launcher.recommended ? <span className={styles.tag}>Recomendado</span> : null}
+            {launcher.badge ? <span className={styles.tag}>{launcher.badge}</span> : null}
           </button>
         ))}
       </div>
@@ -75,10 +74,11 @@ export function LauncherTabs({ launchers, downloadUrl }: LauncherTabsProps) {
                 <li key={step}>{step}</li>
               ))}
             </ol>
-            {launcher.offersDownload ? (
+            {launcher.note ? <p className={styles.note}>{launcher.note}</p> : null}
+            {launcher.download ? (
               <div className={styles.download}>
-                <ButtonLink href={downloadUrl} external>
-                  Descargar
+                <ButtonLink href={launcher.download.href} external>
+                  {launcher.download.label}
                 </ButtonLink>
               </div>
             ) : null}
