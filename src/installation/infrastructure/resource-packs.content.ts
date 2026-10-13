@@ -1,12 +1,12 @@
 import type { ResourcePack } from "@/installation/domain/resource-pack";
 
-/** Mandatory load order. Do not reorder. */
+/** Mandatory order, top to bottom as shown in the selected column of the game. Do not reorder. */
 export const resourcePacks: ResourcePack[] = [
-  { name: "HIDYKs REALM", purpose: "Paquete base, con el parche de animación de comer para 41 comidas." },
-  { name: "LANOSTRYs JOURNEY (fixed v2)", purpose: "Versión corregida, compatible con el parche de comidas." },
-  { name: "Nautilus3D", purpose: "Animaciones de jugadores con más profundidad." },
-  { name: "FreshAnimations + FA+Player", purpose: "Animaciones fluidas para criaturas y jugadores." },
-  { name: "HyperPunchy + Punchy refined", purpose: "Golpes y combate con más impacto visual." },
-  { name: "Enchantment Glows", purpose: "Brillo en los objetos encantados." },
-  { name: "EatingAnimation (parche)", purpose: "Va en la cima de la lista, para no chocar con otros mods de comida.", topOfList: true },
+  { name: "LANOSTRYs JOURNEY", purpose: "Va arriba del todo. Versión corregida, compatible con el parche de comidas." },
+  { name: "Nautilus3D", purpose: "Profundidad y animaciones de jugadores." },
+  { name: "Punchy refined", purpose: "Modelos 3D de combate, en su versión refinada." },
+  { name: "HIDYKs REALM EatingAnimation", purpose: "Parche de la animación de comer para 41 comidas. Va justo encima de HIDYKs REALM.", isPatch: true },
+  { name: "HIDYKs REALM", purpose: "Paquete base de texturas del pack." },
+  { name: "HyperPunchy", purpose: "Golpes y combate con más impacto visual." },
+  { name: "Enchantment Glows", purpose: "Brillo en los objetos encantados. Va al final de la lista." },
 ];

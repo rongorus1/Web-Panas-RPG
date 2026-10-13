@@ -1,5 +1,6 @@
 export type ResourcePack = {
   name: string;
   purpose: string;
-  topOfList?: boolean;
+  /** Compatibility patch that must sit right above the pack it fixes. */
+  isPatch?: boolean;
 };

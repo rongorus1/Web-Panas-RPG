@@ -63,11 +63,11 @@
   font-size: 0.94rem;
 }
 
-.list li.top {
+.list li.patch {
   background: rgba(142, 224, 78, 0.07);
 }
 
-.list li.top::before {
+.list li.patch::before {
   background: var(--xp);
   color: var(--xp-ink);
 }

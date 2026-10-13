@@ -6,12 +6,12 @@ export function ResourcePackOrder() {
     <div className={styles.packs}>
       <div className={styles.copy} data-reveal>
         <h3>Resource packs, en este orden</h3>
-        <p>El orden es obligatorio. Si cambia, aparecen conflictos de texturas y errores de renderizado.</p>
-        <p>No los reordenes. Si quieres quitar alguno, hazlo desde el lanzador y nunca a mano en el archivo.</p>
+        <p>En el juego entra en Opciones, Paquetes de recursos, y pasa estos packs a la columna de seleccionados. Colócalos de arriba abajo en el mismo orden de esta lista.</p>
+        <p>El orden es obligatorio: si cambia, aparecen conflictos de texturas y errores de renderizado. Si el parche de comidas no queda justo encima de HIDYKs REALM, la animación de comer no se aplica.</p>
       </div>
       <ol className={styles.list} aria-label="Orden de los resource packs" data-reveal="stagger">
         {resourcePacks.map((pack) => (
-          <li key={pack.name} className={pack.topOfList ? styles.top : undefined}>
+          <li key={pack.name} className={pack.isPatch ? styles.patch : undefined}>
             <div>
               <b>{pack.name}</b>
               <span>{pack.purpose}</span>
