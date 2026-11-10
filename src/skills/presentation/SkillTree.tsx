@@ -45,8 +45,8 @@ export function SkillTree() {
           ))}
         </ul>
         <div className={styles.professions} data-reveal>
-          <h3>Cuatro ramas de profesión</h3>
-          <p>Pulsa <kbd>K</kbd> para abrir el árbol. Cada oficio tiene seis nodos, progresa por separado hasta el nivel 30 y da un punto por nivel. La experiencia de oficio es personal.</p>
+          <h3>Ocho ramas de habilidades</h3>
+          <p>Pulsa <kbd>K</kbd> para abrir el árbol. El árbol tiene cuatro ramas base (Combat, Mining, Class Skills y Weapon Skills) y las cuatro profesiones de abajo. Cada profesión tiene seis nodos y progresa hasta el nivel 30, con experiencia personal y un punto por nivel.</p>
           <ul className={styles.classes}>
             {professions.map((profession) => (
               <li key={profession.name}>
