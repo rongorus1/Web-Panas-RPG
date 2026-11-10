@@ -12,7 +12,7 @@ export function SkillTree() {
       <Container>
         <div className={styles.top}>
           <div>
-            <h2 id="skills-title" data-reveal>Cuatro clases, más de 200 nodos</h2>
+            <h2 id="skills-title" data-reveal>Ocho clases, más de 200 nodos</h2>
             <p className={styles.lead} data-reveal style={revealOrder(1)}>
               El árbol de habilidades de RPG Series decide cómo juegas. Y como la experiencia es compartida, el grupo sube junto.
             </p>
