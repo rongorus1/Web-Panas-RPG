@@ -15,16 +15,15 @@ export function Changelog() {
               <div>
                 <h3>{release.title}</h3>
                 <p>
-                  {release.isLatest ? (
+                  {release.summary}
+                  {release.isLatest && (
                     <>
-                      Publicada el {panasRpg.releasedOn}. Las notas completas están en CurseForge y en el{" "}
-                      <a href={panasRpg.links.community} target="_blank" rel="noopener noreferrer">
-                        Discord
+                      {" "}Publicada en CurseForge el {panasRpg.releasedOn}.{" "}
+                      <a href={panasRpg.links.releaseNotes} target="_blank" rel="noopener noreferrer">
+                        Notas completas de la versión
                       </a>
                       .
                     </>
-                  ) : (
-                    release.summary
                   )}
                 </p>
               </div>

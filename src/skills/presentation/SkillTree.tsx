@@ -1,9 +1,10 @@
-import { skillClasses, skillPerks, skillTreeAlt } from "@/skills/infrastructure/skills.content";
+import Image from "next/image";
+import { professions, skillClasses, skillPerks } from "@/skills/infrastructure/skills.content";
 import { revealOrder } from "@/shared/motion/reveal";
 import { Container } from "@/shared/ui/Container";
-import treeAnimated from "./assets/habilidades.gif";
-import treePoster from "./assets/habilidades-poster.png";
 import styles from "./SkillTree.module.css";
+
+const treeMediaPath = `${process.env.BASE_PATH ?? ""}/skills/arbol-de-habilidades`;
 
 export function SkillTree() {
   return (
@@ -22,12 +23,17 @@ export function SkillTree() {
             </ul>
           </div>
           <figure className={styles.tree} data-reveal>
-            {/* <picture> serves a still frame under prefers-reduced-motion; next/image cannot optimize the GIF. */}
             <picture>
-              <source media="(prefers-reduced-motion: reduce)" srcSet={treePoster.src} />
-              <img src={treeAnimated.src} width={treeAnimated.width} height={treeAnimated.height} loading="lazy" alt={skillTreeAlt} />
+              <source media="(prefers-reduced-motion: reduce)" srcSet={`${treeMediaPath}.jpg`} />
+              <Image
+                src={`${treeMediaPath}.gif`}
+                width={640}
+                height={360}
+                alt="Demostración del árbol de habilidades y profesiones"
+                unoptimized
+              />
             </picture>
-            <figcaption>El árbol de habilidades, tal como se ve en el juego.</figcaption>
+            <figcaption>Así se ven las ramas del árbol de habilidades en el juego.</figcaption>
           </figure>
         </div>
         <ul className={styles.classes} data-reveal="stagger">
@@ -38,6 +44,18 @@ export function SkillTree() {
             </li>
           ))}
         </ul>
+        <div className={styles.professions} data-reveal>
+          <h3>Cuatro ramas de profesión</h3>
+          <p>Pulsa <kbd>K</kbd> para abrir el árbol. Cada oficio tiene seis nodos, progresa por separado hasta el nivel 30 y da un punto por nivel. La experiencia de oficio es personal.</p>
+          <ul className={styles.classes}>
+            {professions.map((profession) => (
+              <li key={profession.name}>
+                <h4>{profession.name}</h4>
+                <p>{profession.summary}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </Container>
     </section>
   );

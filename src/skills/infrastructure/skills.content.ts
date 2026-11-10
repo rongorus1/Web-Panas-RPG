@@ -13,5 +13,9 @@ export const skillPerks: string[] = [
   "El Orb of Oblivion te deja reasignar los puntos.",
 ];
 
-export const skillTreeAlt =
-  "El árbol de habilidades dentro del juego: una red simétrica de nodos conectados que se despliega desde el centro";
+export const professions = [
+  { name: "Ingeniería", summary: "Gana experiencia al fabricar o fundir componentes de Create y al picar menas sin Toque de Seda." },
+  { name: "Cocina", summary: "Sube al preparar y comer platos que cuentan para el oficio." },
+  { name: "Caza", summary: "Progresa al derrotar criaturas. Los enemigos más fuertes suelen dar más experiencia." },
+  { name: "Exploración", summary: "Gana experiencia al pescar, recolectar materiales y fabricar equipo de viaje, como mapas y brújulas." },
+];

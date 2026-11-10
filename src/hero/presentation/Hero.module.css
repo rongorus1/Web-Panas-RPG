@@ -139,6 +139,29 @@
 }
 
 @media (max-width: 760px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    height: auto;
+    min-height: 100dvh;
+    max-height: none;
+    padding: max(290px, 50dvh) 0 20px;
+    container-type: inline-size;
+  }
+
+  .stage {
+    top: 50dvh;
+  }
+
+  .copy,
+  .facts {
+    position: relative;
+    inset: auto;
+    transform: none;
+  }
+
   .copy {
     gap: 12px;
   }

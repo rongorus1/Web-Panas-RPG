@@ -15,7 +15,7 @@ const archivo = Archivo({ subsets: ["latin"], weight: ["400", "500", "600", "700
 const handjet = Handjet({ subsets: ["latin"], weight: ["500", "700", "800"], variable: "--font-handjet", display: "swap" });
 
 const description =
-  "Modpack de Minecraft 1.20.1 para jugar con tus panas: Create, mazmorras con jefes, exploración y cocina, 7 fases de misiones y 4 clases. Optimizado para co-op sin lag.";
+  "Modpack de Minecraft 1.20.1 para jugar con tus panas: Create, mazmorras con jefes, exploración y cocina, 14 fases de misiones, 4 clases y economía cooperativa.";
 
 export const metadata: Metadata = {
   title: `${panasRpg.name} | Modpack de Minecraft ${panasRpg.minecraftVersion}`,

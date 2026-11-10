@@ -60,6 +60,7 @@
 }
 
 .panel {
+  overflow-wrap: anywhere;
   background: var(--bg-2);
   border-radius: var(--r);
   padding: clamp(24px, 3vw, 36px);
@@ -112,7 +113,7 @@
 
 @media (max-width: 960px) {
   .launch {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

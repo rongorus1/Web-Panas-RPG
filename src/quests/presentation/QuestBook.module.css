@@ -46,6 +46,8 @@
   display: grid;
   gap: 2px;
   padding: 0 12px;
+  max-height: 26rem;
+  overflow-y: auto;
 }
 
 .phase {
@@ -87,36 +89,41 @@
   color: var(--xp);
 }
 
-.note {
-  margin: 4px 22px 0;
-  padding-top: 14px;
-  border-top: 1px solid rgba(159, 179, 230, 0.22);
-  color: #c9d4f0;
-  font-size: 0.95rem;
-  min-height: 4.2em;
-}
-
-.note[data-visible="false"] {
-  border-top-color: transparent;
-}
-
 .view {
   position: relative;
   min-height: 360px;
 }
 
-.shot {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 200ms var(--ease-out);
+.figure {
+  display: grid;
+  align-content: center;
+  min-height: 100%;
+  margin: 0;
 }
 
-.shot[data-active="true"] {
-  opacity: 1;
+.shot {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.figure figcaption {
+  padding: 12px 20px 18px;
+  color: #c9d4f0;
+}
+
+.chapter {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  min-height: 100%;
+  padding: clamp(20px, 4vw, 56px);
+  color: #fff;
+}
+
+.chapter p {
+  max-width: 46ch;
+  color: #c9d4f0;
 }
 
 .foot {
@@ -132,7 +139,10 @@
   .view {
     order: -1;
     min-height: 0;
-    aspect-ratio: 16 / 9;
+  }
+
+  .phases {
+    max-height: 14rem;
   }
 }
 
@@ -149,12 +159,6 @@
   --reveal-duration: 440ms;
   --reveal-delay: 220ms;
   --reveal-step: 75ms;
-}
-
-.note {
-  --reveal-y: 6px;
-  --reveal-delay: 820ms;
-  --reveal-duration: 420ms;
 }
 
 .phase {
@@ -179,7 +183,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .shot,
   .phase {
     transition-duration: 1ms;
   }

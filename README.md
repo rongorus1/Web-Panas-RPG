@@ -21,7 +21,7 @@ src/
   hero/           Portada
   world-tour/     Recorrido por los cuatro mundos (la cámara que viaja por el arte)
   biomes/         Capturas reales del juego (galería)
-  quests/         Las 7 fases de misiones (FTB Quests)
+  quests/         Las 14 fases de misiones (FTB Quests)
   skills/         Clases y árbol de habilidades
   installation/   Requisitos, lanzadores y orden de resource packs
   changelog/      Registro de versiones
@@ -46,7 +46,6 @@ El código de la web es MIT (ver `LICENSE`). Las imágenes y el arte del modpack
 
 ## Pendiente de confirmar
 
-- `loadedMods` (240) es el recuento del juego (captura del menú). El manifest del pack lista 234 archivos de CurseForge (227 en `modlist.html`) más 5 jars propios; decidir qué cifra mostrar (`src/modpack/infrastructure/panas-rpg.content.ts`).
 - Permiso de uso del arte de la ficha de CurseForge (autor: juanse_vg).
 - Sin imagen Open Graph: falta el dominio final para `metadataBase`.
 - `contenido/` (texto de la web anterior) y `propuestas/` (propuestas de diseño en HTML) son material local ignorado por git; no forman parte de la build.

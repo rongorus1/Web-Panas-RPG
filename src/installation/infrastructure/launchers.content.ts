@@ -1,7 +1,21 @@
 import type { Launcher } from "@/installation/domain/launcher";
 import { panasRpg } from "@/modpack/infrastructure/panas-rpg.content";
 
+const releaseArchive = `Panas.RPG.${panasRpg.version}.zip`;
+
 export const launchers: Launcher[] = [
+  {
+    id: "curseforge",
+    name: "CurseForge",
+    badge: "Recomendado",
+    guideTitle: "Con la app de CurseForge",
+    download: { label: "Ver la versión en CurseForge", href: panasRpg.links.releaseNotes },
+    steps: [
+      'Busca "Panas RPG" en la app de CurseForge.',
+      `Selecciona la versión ${panasRpg.version} e instálala. La app se encarga de descargar los mods y sus dependencias.`,
+      "Si ya tienes el perfil, haz una copia de tu mundo y actualízalo desde la app. Puedes seguir usando tu partida y conservar el progreso de misiones.",
+    ],
+  },
   {
     id: "panas-launcher",
     name: "Panas RPG Launcher",
@@ -15,29 +29,19 @@ export const launchers: Launcher[] = [
       "Pulsa Instalar: descarga Java, Minecraft, Forge y todos los mods del pack.",
       "Cuando termine, pulsa Jugar.",
     ],
-    note: "En Windows puede aparecer el aviso de SmartScreen porque el launcher aún no está firmado: elige Más información y después Ejecutar de todos modos.",
-  },
-  {
-    id: "curseforge",
-    name: "CurseForge",
-    badge: "Recomendado",
-    guideTitle: "Con la app de CurseForge",
-    download: { label: "Descargar", href: panasRpg.links.download },
-    steps: [
-      'Busca "Panas RPG" en la app de CurseForge.',
-      "Pulsa Instalar: el lanzador descarga y coloca todos los mods.",
-      "Las actualizaciones llegan solas cuando sale una versión nueva.",
-    ],
+    note: `Comprueba la versión que ofrece el launcher antes de instalar. Para jugar en ${panasRpg.version}, también puedes usar CurseForge o PrismLauncher.`,
   },
   {
     id: "prism",
     name: "PrismLauncher",
     guideTitle: "Con PrismLauncher",
+    download: { label: "Ver archivos en GitHub", href: panasRpg.links.releases },
     steps: [
-      "Descarga PrismLauncher desde su sitio oficial.",
-      "Crea una instancia de Minecraft 1.20.1 con Forge 47.4.10.",
-      "Importa el archivo .zip del modpack.",
-      "En la configuración de la instancia, asigna de 6 a 8 GB de RAM.",
+      `Descarga ${releaseArchive} desde GitHub Releases.`,
+      "En PrismLauncher, elige Añadir instancia, luego Importar, y selecciona el ZIP completo.",
+      `Comprueba que la instancia usa Java ${panasRpg.javaVersion} y asigna ${panasRpg.ramRecommended} de RAM.`,
+      "Si actualizas una partida, haz una copia de seguridad antes de migrar tu mundo a la instancia nueva.",
     ],
+    note: `Para una instalación manual, el mismo release ofrece Panas.RPG-${panasRpg.version}-Mods.Completo.rar. Extrae su contenido en la carpeta .minecraft de una instancia con Minecraft ${panasRpg.minecraftVersion} y Forge ${panasRpg.forgeVersion}.`,
   },
 ];

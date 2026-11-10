@@ -1,32 +1,27 @@
 import type { Release } from "@/changelog/domain/release";
 
+import { panasRpg } from "@/modpack/infrastructure/panas-rpg.content";
 
 export const releases: Release[] = [
   {
-    version: "1.7.2",
-    title: "Última versión",
-    summary: "Publicada el 12 de octubre de 2026. Las notas completas están en CurseForge y en el Discord.",
+    version: panasRpg.version,
+    title: "Árbol de habilidades restaurado",
+    summary: "Vuelve a abrir el árbol con K. Se corrigió la experiencia de las cuatro profesiones, se depuraron las etiquetas de cocina y se actualizó la guía Patchouli.",
     isLatest: true,
   },
   {
-    version: "1.7.1",
-    title: "Hotfix del árbol de habilidades",
-    summary: "Dependencias críticas del Skill Tree resueltas con los paquetes de las 4 clases de RPG Series.",
+    version: "1.9.3",
+    title: "Correcciones de descanso y estabilidad",
+    summary: "Somnia permite dormir al anochecer. Se corrigió el cierre al consultar mochilas en la guía desactivando la deduplicación de ingredientes de AllTheLeaks.",
   },
   {
-    version: "1.7",
-    title: "Fase VII y mods nuevos",
-    summary:
-      "43 misiones nuevas en la Fase VII, orden de carga corregido para los atributos de armas y magia, y 7 mods nuevos, entre ellos Legendary Monsters y Grim Kingdoms.",
+    version: "1.9.2",
+    title: "Profesiones y Jinetes de Dragón",
+    summary: "Cuatro profesiones, diez misiones de dragones en la fase XIV y nuevos contenidos de cocina.",
   },
   {
-    version: "1.6 y 1.6.1",
-    title: "Menús estáticos",
-    summary: "Fuera las dependencias pesadas de vídeo para cargar antes; después, ajustes de configuración y estabilidad.",
-  },
-  {
-    version: "1.5.2",
-    title: "Restauración completa",
-    summary: "De vuelta a 206 mods, con estructuras, las cuevas de Alex's Caves y animaciones de combate.",
+    version: "1.9.1",
+    title: "Guía de supervivencia ilustrada",
+    summary: "Nuevas ilustraciones de objetos y criaturas, más jefes y una revisión de los controles y consejos del libro.",
   },
 ];

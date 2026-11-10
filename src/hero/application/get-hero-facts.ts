@@ -7,6 +7,6 @@ export function getHeroFacts(modpack: Modpack): HeroFact[] {
     { label: "Minecraft", value: modpack.minecraftVersion },
     { label: "Forge", value: modpack.forgeVersion },
     { label: "Versión", value: modpack.version },
-    { label: "Mods cargados", value: String(modpack.loadedMods) },
+    { label: "Mods incluidos", value: String(modpack.loadedMods) },
   ];
 }

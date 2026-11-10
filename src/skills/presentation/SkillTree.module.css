@@ -48,7 +48,9 @@
 }
 
 .tree img {
+  display: block;
   width: 100%;
+  height: auto;
 }
 
 .tree figcaption {
@@ -75,8 +77,21 @@
   border-left: 1px solid var(--rule);
 }
 
-.classes h3 {
-  font-size: clamp(1.9rem, 2.6vw, 2.4rem);
+.classes :is(h3, h4),
+.professions h3 {
+  font: 700 clamp(1.9rem, 2.6vw, 2.4rem)/1.1 var(--display);
+}
+
+.professions {
+  margin-top: clamp(40px, 6vw, 72px);
+}
+
+.professions > p {
+  margin-top: 12px;
+}
+
+.professions .classes {
+  margin-top: 24px;
 }
 
 .classes p {

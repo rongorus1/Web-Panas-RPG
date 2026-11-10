@@ -68,11 +68,6 @@ export function QuestBookViewer({ phases }: { phases: QuestPhaseEntry[] }) {
             </li>
           ))}
         </ol>
-        <p className={styles.note} data-visible={current.addedInVersion ? "true" : "false"}>
-          {current.addedInVersion
-            ? `La fase ${current.numeral} llegó en la versión ${current.addedInVersion} con ${current.newQuests} misiones nuevas.`
-            : null}
-        </p>
       </div>
       <div
         className={styles.view}
@@ -80,20 +75,22 @@ export function QuestBookViewer({ phases }: { phases: QuestPhaseEntry[] }) {
         id={`${baseId}-panel`}
         aria-labelledby={`${baseId}-tab-${selected}`}
       >
-        {phases.map((phase, i) => (
-          <Image
-            key={phase.numeral}
-            className={styles.shot}
-            data-active={selected === i}
-            src={phase.image}
-            alt={
-              selected === i
-                ? `Árbol de misiones de la fase ${phase.numeral}, ${phase.name}: los iconos de cada misión, conectados entre sí, sobre la pantalla oscurecida del libro de misiones`
-                : ""
-            }
-            sizes="(max-width: 960px) 100vw, 800px"
-          />
-        ))}
+        {current.image ? (
+          <figure className={styles.figure}>
+            <Image
+              className={styles.shot}
+              src={current.image}
+              alt={`Captura del árbol de misiones de la fase ${current.numeral}, ${current.name}`}
+              sizes="(max-width: 960px) 100vw, 800px"
+            />
+            {current.summary && <figcaption>{current.summary}</figcaption>}
+          </figure>
+        ) : (
+          <div className={styles.chapter}>
+            <h3>Fase {current.numeral} · {current.name}</h3>
+            <p>{current.summary}</p>
+          </div>
+        )}
       </div>
     </div>
   );

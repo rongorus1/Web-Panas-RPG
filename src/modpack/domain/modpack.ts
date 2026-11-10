@@ -7,12 +7,13 @@ export type Modpack = {
   forgeVersion: string;
   version: string;
   releasedOn: string;
-  /** Taken from the in-game menu screenshot; not confirmed against the CurseForge page. */
   loadedMods: number;
   javaVersion: string;
   ramRecommended: string;
   links: {
     download: string;
+    releaseNotes: string;
+    releases: string;
     community: string;
     launcher: string;
   };
